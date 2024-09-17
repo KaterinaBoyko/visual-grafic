@@ -1,0 +1,37 @@
+import matplotlib.pyplot as plt
+import seaborn as sns
+plt.figure(figsize=(10, 6))  
+
+plt.hist(kc_house_data['price'], bins=50, color='skyblue', edgecolor='black')  # Построение гистограммы
+plt.title('Распределение стоимости недвижимости')  # Заголовок графика
+plt.xlabel('Стоимость (USD)')  # Название оси X
+plt.ylabel('Количество домов')  # Название оси Y
+plt.grid(True)  # Включаем сетку
+plt.show()  # Отображаем график
+plt.figure(figsize=(10, 6))
+plt.hist(kc_house_data['yr_built'], bins=50, color='lightcoral', edgecolor='black')
+plt.title('Распределение года постройки')
+plt.xlabel('Год постройки')
+plt.ylabel('Количество домов')
+plt.grid(True)
+plt.show()
+
+
+plt.figure(figsize=(10, 6))
+sns.scatterplot(data=kc_house_data, x='sqft_living', y='price', alpha=0.6)  # Построение графика рассеяния
+plt.title('Влияние площади жилого помещения на стоимость')
+plt.xlabel('Площадь жилого помещения (кв. футы)')
+plt.ylabel('Стоимость (USD)')
+plt.grid(True)
+plt.show()
+plt.figure(figsize=(10, 6))
+sns.boxplot(data=kc_house_data, x='yr_built', y='price')  # Построение box plot
+plt.title('Влияние года постройки на стоимость')
+plt.xlabel('Год постройки')
+plt.ylabel('Стоимость (USD)')
+plt.xticks(rotation=45)  # Поворачиваем метки оси X
+plt.grid(True)
+plt.show()
+plt.savefig('/mnt/data/price_distribution.png')
+
+
